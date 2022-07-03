@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  product-service-ms:
+    container_name: product-services-ms
+    image: product-service:1.0.0
+    build:
+      context: .
+      # target: development --> if have more than 1 env
+      dockerfile: ./Dockerfile
+    command: npm run listen
+    env_file:
+      - .env
+    volumes:
+      - .:/user/src/app
+      - /user/src/app/node_modules
+    networks:
+      - my-net
+
+  product-service-api:
+    container_name: product-services-api
+    image: product-service:1.0.0
+    build:
+      context: .
+      # target: development --> if have more than 1 env
+      dockerfile: ./Dockerfile
+    command: npm run start:dev
+    ports:
+      - ${PORT}:${PORT}
+    env_file:
+      - .env
+    volumes:
+      - .:/user/src/app
+      - /user/src/app/node_modules
+    networks:
+      - my-net
+
+networks:
+  my-net:
+    external: true
