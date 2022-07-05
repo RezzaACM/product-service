@@ -29,10 +29,10 @@ jobs:
           envkey_PORT: 3003
           envkey_DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
           file_name: .env
-        run: |
-          touch .env
-          echo PORT=3003 >> .env
-          echo HOST=${{secrets.HOST}} >> .env
+        # run: |
+        #   touch .env
+        #   echo PORT=3003 >> .env
+        #   echo HOST=${{secrets.HOST}} >> .env
 
       # - name: Create env file
       #   uses: SpicyPizza/create-envfile@v1.3
