@@ -10,8 +10,7 @@ import { Product, ProductDocument } from './schemas/product.schema';
 export class ProductService {
 
   constructor(
-    @InjectModel(Product.name) private productModel: Model<ProductDocument>,
-    @Inject('PRODUCT_SERVICE') private client: ClientProxy
+    @InjectModel(Product.name) private readonly productModel: Model<ProductDocument>,
   ) { }
 
   async create(body: CreateProductDto): Promise<ProductDocument> {
@@ -24,23 +23,21 @@ export class ProductService {
 
   async findAll(): Promise<ProductDocument[]> {
     try {
-      let a = this.client.send({ cmd: 'greeting' }, 'Progressive Coder');
-      console.log(a)
       return await this.productModel.find({ isDeleted: false }).exec()
     } catch (error) {
       throw new Error(error);
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
-  }
+  // findOne(id: number) {
+  //   return `This action returns a #${id} product`;
+  // }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
-  }
+  // update(id: number, updateProductDto: UpdateProductDto) {
+  //   return `This action updates a #${id} product`;
+  // }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
-  }
+  // remove(id: number) {
+  //   return `This action removes a #${id} product`;
+  // }
 }

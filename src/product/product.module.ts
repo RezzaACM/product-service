@@ -10,19 +10,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema }
     ]),
-    ClientsModule.register([{
-      name: 'PRODUCT_SERVICE',
-      transport: Transport.RMQ,
-      options: {
-        urls: ['amqp://admin:admin@localhost:5672'],
-        queue: 'main_queue',
-        queueOptions: {
-          durable: false
-        },
-      },
-    }])
   ],
   controllers: [ProductController],
-  providers: [ProductService]
+  providers: [ProductService],
 })
 export class ProductModule { }

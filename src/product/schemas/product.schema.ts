@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from 'mongoose';
-import { Utility } from "src/utility/utility.service";
+import { Utility } from "../../utility/utility.service";
 
 @Schema({ _id: false })
 class PriceDetails {
