@@ -23,12 +23,16 @@ jobs:
         run: npm ci
 
       - name: Create env file
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_DEBUG: false
+          envkey_PORT: 3003
+          envkey_DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
+          file_name: .env
         run: |
           touch .env
           echo PORT=3003 >> .env
-          echo DB_CONNECTION=mongodb+srv://rezza-dev:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority >> .env
-          echo HOST=${{secrets.HOST}}
-          cat .env
+          echo HOST=${{secrets.HOST}} >> .env
 
       # - name: Create env file
       #   uses: SpicyPizza/create-envfile@v1.3
