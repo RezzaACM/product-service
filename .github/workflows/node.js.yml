@@ -59,7 +59,7 @@ jobs:
         id: deploy
         with:
           script: |
-            cd /home/ubuntu/product-service/
+            cd /home/ubuntu/product-service
             git pull origin master
             npm install --only=production
             pm2 restart product-service
