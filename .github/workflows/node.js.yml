@@ -26,7 +26,8 @@ jobs:
         run: |
           touch .env
           echo PORT=3003 >> .env
-          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env
+          echo DB_CONNECTION=mongodb+srv://rezza-dev:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority >> .env
+          echo HOST=${{secrets.HOST}}
           cat .env
 
       # - name: Create env file
