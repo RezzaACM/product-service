@@ -17,6 +17,7 @@ import { ProductModule } from './product/product.module';
       inject: [ConfigService],
     }),
     ConfigModule.forRoot({
+      envFilePath: ['.env.development.local', '.env'],
       isGlobal: true,
     }),
     ProductModule
