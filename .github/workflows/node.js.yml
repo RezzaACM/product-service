@@ -22,8 +22,20 @@ jobs:
       - name: Install Dependencies
         run: npm i
 
+      - name: Create env file
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_DEBUG: false
+          envkey_PORT: 3003
+          envkey_DB_CONNECTION: ${{secrets.DB_CONNECTIOn}}
+          file_name: .env
+          fail_on_empty: false
+
+      - name: Unit Testing
+        run: npm run test
+
       - name: Build
         run: npm run build
 
-      - name: restart apps
-        run: pm2 restart product-service
+      # - name: restart apps
+      #   run: pm2 restart product-service
