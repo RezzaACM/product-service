@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Create env file
-        uses: SpicyPizza/create-envfile@v1
+        # uses: SpicyPizza/create-envfile@v1
         # with:
         #   envkey_DEBUG: false
         #   envkey_PORT: 3003
