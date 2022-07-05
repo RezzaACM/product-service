@@ -41,7 +41,7 @@ jobs:
         run: pm2 restart product-service
 
   deployment:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     needs: [build]
 
     steps:
