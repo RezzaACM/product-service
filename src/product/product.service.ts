@@ -30,7 +30,7 @@ export class ProductService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} product reza jago ngoding`;
+    return `This action returns a #${id} product reza jago ngoding eh tapi boong`;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
