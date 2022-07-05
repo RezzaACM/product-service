@@ -33,7 +33,7 @@ jobs:
           touch .env
           echo PORT=3003 >> .env |
           echo DB_CONNECTION=${{secrets.DB_CONNECTION}} >> .env |
-          echo HOST=${{secrets.HOST}} >> .env |
+          echo HOST=${{secrets.HOST}} >> .env 
 
       # - name: Create env file
       #   uses: SpicyPizza/create-envfile@v1.3
