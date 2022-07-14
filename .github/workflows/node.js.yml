@@ -46,7 +46,8 @@ jobs:
         run: npm run build
 
       - name: restart apps
-        run: pm2 restart product-service
+        run: |
+          pm2 start dist/main.js --name=product-service
 
   # deployment:
   #   runs-on: self-hosted
