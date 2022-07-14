@@ -29,6 +29,7 @@ jobs:
           echo PORT=${{ secrets.PORT }} >> .env 
           echo HOST=${{ secrets.HOST }} >> .env 
           echo TEST=123 >> .env
+          echo TEST=mongodb+srv://rezza-dev:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority >> .env
           cat .env
         env:
           DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
