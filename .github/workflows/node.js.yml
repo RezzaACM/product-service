@@ -22,37 +22,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: 'Create env file'
-        run: |
-          touch .env
-          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env
-          echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
-          echo AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} >> .env
-          echo HOST=${{ secrets.HOST }} >> .env
-          cat .env
-
-      # - name: Create env file
-      #   run: |
-      #     touch .env
-      #     echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env  
-      #     echo PORT=${{ secrets.PORT }} >> .env 
-      #     echo HOST=${{ secrets.HOST }} >> .env 
-      #     echo TEST=123 >> .env
-      #     echo CS=mongodb+srv://rezza-dev:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority >> .env
-      #     cat .env
-      #   env:
-      #     DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
-      #     PORT: ${{ secrets.PORT }}
-
-      # - name: Create env file
-      #   uses: SpicyPizza/create-envfile@v1.3
-      #   with:
-      #     envkey_DEBUG: false
-      #     envkey_PORT: 3003
-      #     envkey_DB_CONNECTION: ${{secrets.DB_CONNECTIOn}}
-      #     file_name: .env
-      #     fail_on_empty: false
+      - name: Create env file
+        run: cp ~/envfile/.env.stagin ~/backend/_work/product-service/product-service/.env
 
       - name: Unit Testing
         run: npm run test
