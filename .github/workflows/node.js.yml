@@ -26,7 +26,10 @@ jobs:
         run: |
           touch .env
           echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo API_KEY=${{ secrets.DB_CONNECTION }} >> .env
+          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env
+          echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
+          echo AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} >> .env
+          echo HOST=${{ secrets.HOST }} >> .env
           cat .env
 
       # - name: Create env file
