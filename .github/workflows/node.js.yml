@@ -25,10 +25,13 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env  
-          echo PORT=${{ secrets.PORT }} >> .env 
-          echo HOST=${{ secrets.HOST }} >> .env 
+          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} > .env  
+          echo PORT=${{ secrets.PORT }} > .env 
+          echo HOST=${{ secrets.HOST }} > .env 
           cat .env
+        env:
+          DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
+          PORT: ${{ secrets.PORT }}
 
       # - name: Create env file
       #   uses: SpicyPizza/create-envfile@v1.3
