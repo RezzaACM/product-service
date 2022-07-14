@@ -22,18 +22,25 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Create env file
+      - name: 'Create env file'
         run: |
           touch .env
-          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env  
-          echo PORT=${{ secrets.PORT }} >> .env 
-          echo HOST=${{ secrets.HOST }} >> .env 
-          echo TEST=123 >> .env
-          echo CS=mongodb+srv://rezza-dev:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority >> .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.DB_CONNECTION }} >> .env
           cat .env
-        env:
-          DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
-          PORT: ${{ secrets.PORT }}
+
+      # - name: Create env file
+      #   run: |
+      #     touch .env
+      #     echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env  
+      #     echo PORT=${{ secrets.PORT }} >> .env 
+      #     echo HOST=${{ secrets.HOST }} >> .env 
+      #     echo TEST=123 >> .env
+      #     echo CS=mongodb+srv://rezza-dev:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority >> .env
+      #     cat .env
+      #   env:
+      #     DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
+      #     PORT: ${{ secrets.PORT }}
 
       # - name: Create env file
       #   uses: SpicyPizza/create-envfile@v1.3
