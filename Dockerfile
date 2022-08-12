@@ -8,4 +8,8 @@ RUN npm install --only=development
 
 COPY . .
 
+EXPOSE 3003
+
 RUN npm run build
+
+CMD [ "node", "dist/main.js" ]
