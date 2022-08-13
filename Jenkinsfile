@@ -1,17 +1,7 @@
 pipeline{
   agent any 
-  
-  tools {
-    nodejs '18.7.0'
-  }
 
   stages{
-
-    stage ('Check npm version'){
-        steps {
-            sh 'npm version'
-        }
-    }
 
     stage ('checkout'){
       steps{
