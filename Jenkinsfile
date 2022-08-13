@@ -9,7 +9,8 @@ pipeline{
     stage ('install modules'){
       steps{
         sh '''
-          npm ci
+          npm cache clean -f
+          npm install
         '''
       }
     }
