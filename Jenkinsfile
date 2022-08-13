@@ -1,10 +1,29 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
+pipeline{
+  agent { label 'nodejs' }
+  stages{
+    stage ('checkout'){
+      steps{
+        checkout scm
+      }
     }
+    stage ('install modules'){
+      steps{
+        sh '''
+          npm ci
+        '''
+      }
+    }
+    stage ('test'){
+      steps{
+        sh '''
+          npm run test
+        '''
+      }
+    }
+    stage ('build') {
+      steps{
+        sh 'npm run build'
+      }
+    }
+  }
 }
