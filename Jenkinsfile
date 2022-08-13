@@ -1,8 +1,15 @@
 pipeline{
-    agent any
-    environment {
-        CI = 'true'
+  agent any
+
+  nodejs('nodejs-dependency') {
+    // some block
+    steps {
+        sh '''
+          npm install
+        '''
     }
+  }
+
   stages{
 
     stage ('checkout'){
