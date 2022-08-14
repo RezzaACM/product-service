@@ -20,12 +20,13 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'nodejs --version'
-                sh 'npm run test'
-            }
-        }
+        
+        // stage('Test') {
+        //     steps {
+        //         sh 'nodejs --version'
+        //         sh 'npm run test'
+        //     }
+        // }
 
         // stage('Install dependency'){
         //     steps {
