@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('checkout'){
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Install dependency'){
             steps {
                 sh 'npm ci'
