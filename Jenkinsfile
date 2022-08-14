@@ -1,8 +1,13 @@
 pipeline{
   agent any
   
-  tools {
-    nodejs 'node-16.16.0'
+  node ('nodejs') {
+  currentBuild.result = 'SUCCESS'
+
+  stage ('Checkout') {
+    // Clean workspace before checkout
+    step ([$class: 'WsCleanup'])
+    checkout scm
   }
   
 
