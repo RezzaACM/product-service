@@ -14,19 +14,19 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Install dependency') {
             steps {
                 sh 'nodejs --version'
-                sh 'npm install'
+                sh 'npm ci'
             }
         }
-        
-        // stage('Test') {
-        //     steps {
-        //         sh 'nodejs --version'
-        //         sh 'npm run test'
-        //     }
-        // }
+
+        stage('Test') {
+            steps {
+                sh 'nodejs --version'
+                sh 'npm run test'
+            }
+        }
 
         // stage('Install dependency'){
         //     steps {
@@ -34,11 +34,11 @@ pipeline {
         //     }
         // }
 
-        // stage('Build'){
-        //     steps {
-        //         sh 'npm run build'
-        //     }
-        // }
+        stage('Build'){
+            steps {
+                sh 'npm run build'
+            }
+        }
 
         // stage('Unit test'){
         //     steps {
