@@ -20,15 +20,15 @@ pipeline {
             }
         }
 
-        stage('Build'){
-            steps {
-                sh 'npm run build'
-            }
-        }
-
         stage('Unit test'){
             steps {
                 sh 'npm run test'
+            }
+        }
+
+        stage('Build'){
+            steps {
+                sh 'npm run build'
             }
         }
     }
