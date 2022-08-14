@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'nodejs --version'
-                sh 'npm test'
+                sh 'npm run test'
             }
         }
 
