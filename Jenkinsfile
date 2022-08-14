@@ -3,7 +3,10 @@ pipeline{
   stages{
     stage ('checkout'){
       steps{
-        checkout scm
+        sh '''
+            checkout scm
+            node --version
+        '''
       }
     }
     stage ('install modules'){
