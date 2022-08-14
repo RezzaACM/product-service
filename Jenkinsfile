@@ -2,7 +2,8 @@ pipeline{
   agent any
   
   node ('nodejs') {
-  currentBuild.result = 'SUCCESS'
+    currentBuild.result = 'SUCCESS'
+  }
 
   stage ('Checkout') {
     // Clean workspace before checkout
