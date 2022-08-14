@@ -18,13 +18,12 @@ pipeline {
             steps {
                 sh 'nodejs --version'
                 sh 'npm install'
-                sh 'gulp lint'
             }
         }
         stage('Test') {
             steps {
                 sh 'nodejs --version'
-                sh 'gulp test'
+                sh 'npm run test'
             }
         }
 
