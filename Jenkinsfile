@@ -1,15 +1,5 @@
 pipeline{
-  agent any
-  
-  node ('nodejs') {
-    currentBuild.result = 'SUCCESS'
-  }
-
-  stage ('Checkout') {
-    // Clean workspace before checkout
-    step ([$class: 'WsCleanup'])
-    checkout scm
-  }
+  agent { label 'nodejs8' }
   
 
   stages{
