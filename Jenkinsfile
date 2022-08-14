@@ -3,17 +3,14 @@ pipeline{
   stages{
     stage ('checkout'){
       steps{
-        sh '''
-            checkout scm
-            node --version
-        '''
+        checkout scm
+        sh 'node --version'
       }
     }
     stage ('install modules'){
       steps{
         sh '''
-          npm cache clean -f
-          npm install
+          npm ci
         '''
       }
     }
