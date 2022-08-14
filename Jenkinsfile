@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'node-16.*'
-    }
-
     stages {
         stage('Hello') {
             steps {
