@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'nodejs --version'
-                sh './jenkins/scripts/test.sh'
+                sh 'npm test'
             }
         }
 
