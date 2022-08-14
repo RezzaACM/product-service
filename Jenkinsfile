@@ -14,22 +14,36 @@ pipeline {
             }
         }
 
-        stage('Install dependency'){
+        stage('Build') {
             steps {
-                sh 'npm ci'
+                sh 'nodejs --version'
+                sh 'npm install'
+                sh 'gulp lint'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'nodejs --version'
+                sh 'gulp test'
             }
         }
 
-        stage('Build'){
-            steps {
-                sh 'npm run build'
-            }
-        }
+        // stage('Install dependency'){
+        //     steps {
+        //         sh 'npm ci'
+        //     }
+        // }
 
-        stage('Unit test'){
-            steps {
-                sh 'npm run test'
-            }
-        }
+        // stage('Build'){
+        //     steps {
+        //         sh 'npm run build'
+        //     }
+        // }
+
+        // stage('Unit test'){
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // }
     }
 }
