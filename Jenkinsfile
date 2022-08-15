@@ -41,7 +41,7 @@ pipeline{
           remote.name = "take-out web server"
           remote.host = "13.213.62.49"
           remote.allowAnyHosts = true
-          withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identity", passphraseVariable: "", usernameVariable: "jenkins-product")]) {
+          withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identity", passphraseVariable: "", usernameVariable: "userName")]) {
               remote.user = userName
               remote.identityFile = identity
               sshCommand remote: remote, command: "mkdir test-123"
