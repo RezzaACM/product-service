@@ -44,7 +44,7 @@ pipeline{
           withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identity", passphraseVariable: "", usernameVariable: "userName")]) {
               remote.user = userName
               remote.identityFile = identity
-              sshCommand remote: remote, command: "mkdir test-123"
+              sshCommand remote: remote, command: "sudo mkdir test-123"
           }
         }
       }
