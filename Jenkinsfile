@@ -1,16 +1,21 @@
 pipeline{
-  agent any 
+    agent any
+    tools {
+        nodejs '17.3.1'
+    }
+  
+
   stages{
     stage ('checkout'){
       steps{
         checkout scm
+        sh 'node --version'
       }
     }
     stage ('install modules'){
       steps{
         sh '''
-          npm cache clean -f
-          npm install
+          npm ci
         '''
       }
     }
@@ -28,3 +33,19 @@ pipeline{
     }
   }
 }
+
+
+// pipeline {
+//     agent any
+//     tools {
+//         nodejs '16.16.0'
+//     }
+
+//     stages {
+//         stage ('Example'){
+//             steps {
+//                 sh 'npm version'
+//             }
+//         }
+//     }
+// }
