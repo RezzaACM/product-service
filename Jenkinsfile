@@ -41,8 +41,8 @@ pipeline{
           remote.name = "take-out-web-server"
           remote.host = "13.213.62.49"
           remote.allowAnyHosts = true
-          withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identity", passphraseVariable: "", usernameVariable: "userName")]) {
-              remote.user = userName
+          withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identity", passphraseVariable: "", usernameVariable: "jenkins-product")]) {
+              remote.user = jenkins-product
               remote.identityFile = identity
 
               writeFile file: 'abc.sh', text: 'ls'
