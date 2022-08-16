@@ -41,9 +41,9 @@ pipeline{
           remote.name = "take-out-web-server"
           remote.host = "13.213.62.49"
           remote.allowAnyHosts = true
-          withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identity", passphraseVariable: "", usernameVariable: "jenkins-product")]) {
+          withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identifyFile", passphraseVariable: "", usernameVariable: "jenkins-product")]) {
               remote.user = jenkins-product
-              remote.identityFile = identity
+              remote.identityFile = identifyFile
 
               writeFile file: 'abc.sh', text: 'ls'
               sshCommand remote: remote, command: 'for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done'
