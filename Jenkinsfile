@@ -38,7 +38,7 @@ pipeline{
       steps {
         script {
           def remote = [:]
-          remote.name = "take-out-web-server"
+          remote.name = "ubuntu"
           remote.host = "13.213.62.49"
           remote.allowAnyHosts = true
           withCredentials([sshUserPrivateKey(credentialsId: "jenkins-product", keyFileVariable: "identifyFile", passphraseVariable: "", usernameVariable: "userName")]) {
