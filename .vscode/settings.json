@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/apps/v1%40deployment": "file:///Users/funkyreza/Documents/MYSELF/product-service/k8s/deployment.yaml"
+    }
+}

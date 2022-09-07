@@ -3,22 +3,18 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { config } from './config';
 import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRootAsync({
       useFactory: async (configService: ConfigService) => ({
-        uri: config.DB_CONNECTION,
+        uri: process.env.DB_CONNECTION,
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }),
       inject: [ConfigService],
-    }),
-    ConfigModule.forRoot({
-      envFilePath: ['.env.development.local', '.env'],
-      isGlobal: true,
     }),
     ProductModule
   ],

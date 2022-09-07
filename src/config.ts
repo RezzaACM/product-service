@@ -1,8 +1,10 @@
-import * as dotenv from 'dotenv';
-dotenv.config({ debug: true });
+// import * as dotenv from 'dotenv';
+// dotenv.config({ debug: true, override: true });
+// import * as process from 'process'
 
-export const config = {
-    NODE_ENV: process.env.NODE_ENV,
-    PORT: process.env.PORT,
-    DB_CONNECTION: process.env.DB_CONNECTION
-}
+
+
+// export const config = {
+//     PORT: process.env.PORT,
+//     DB_CONNECTION: process.env.DB_CONNECTION
+// }

@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: rezzaacm/product-service:1.0.1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3003
+          env:
+            - name: PORT
+              value: "3003"
+            - name: VERSION
+              value: "1.0.0"
+            - name: APPLICATION
+              value: "product-service"
+            - name: MONGODB_CONNECTION_URI
+              value: "mongodb+srv://rezza-dev1:caiTSi7gOz3Zs2Va@cluster0.xfxq9.mongodb.net/product-service?retryWrites=true&w=majority"
+      restartPolicy: Always
+      dnsPolicy: Default
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+spec:
+  selector:
+    app: product-service
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3003

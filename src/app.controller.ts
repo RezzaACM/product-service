@@ -6,7 +6,8 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @EventPattern('product-created')
+  // @EventPattern('product-created')
+  @Get()
   getHello(): string {
     return this.appService.getHello();
   }
